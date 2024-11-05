@@ -1,5 +1,5 @@
 export const SITE = {
-  title: "Astro Design System",
+  title: "Docs Firmeasy",
   description: "Astro theme to build your design system fast.",
   defaultLanguage: "en_US",
   twitter: "@jordienr",
@@ -17,15 +17,15 @@ export const OPEN_GRAPH = {
 
 export const SIDEBAR = [
   { text: "Core", header: true },
-  { text: "Introduction", link: "/core/introduction" },
-  { text: "Colors", link: "/core/colors" },
-  { text: "Typography", link: "/core/typography" },
-  { text: "Shadows", link: "/core/shadows" },
+  { text: "Informacion General", link: "/core/introduction" },
+  { text: "Carpeta Digital", link: "/core/colors" },
+  { text: "Archivo digital", link: "/core/typography" },
+  { text: "Descargar Archivo digital", link: "/core/shadows" },
 
   { text: "Components", header: true },
-  { text: "Buttons", link: "/components/buttons" },
-  { text: "Input", link: "/components/input" },
-  { text: "Status pills", link: "/components/status-pill" },
+  { text: "Archivo digital Enlace", link: "/components/buttons" },
+  { text: "Archivo Digital Consulta", link: "/components/input" },
+  { text: "Crear Enlace Digital A Firmador", link: "/components/status-pill" },
   { text: "Table", link: "/components/table" },
 
   { text: "Patterns", header: true },

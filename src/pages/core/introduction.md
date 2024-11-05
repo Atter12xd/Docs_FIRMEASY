@@ -1,68 +1,31 @@
 ---
-title: Introduction
-description: Docs intro
+title: Introducción a Firmeasy
 layout: ../../layouts/MainLayout.astro
 ---
 
-# Astro Design System Theme
+# Información General
 
-Astro Design System is the easiest way to start your our design system. Since Astro is compatible with many frameworks, you can import your components and document them right in the markdown files.
+**Firmeasy** es una plataforma de firma electrónica de documentos que garantiza la autenticidad, integridad y no repudio de cada transacción. Todas las firmas realizadas a través de Firmeasy son legalmente válidas en las jurisdicciones correspondientes, cumpliendo con las normativas vigentes en Perú. El objetivo de Firmeasy es democratizar el acceso a la firma digital, facilitando soluciones para entidades públicas y privadas, profesionales y personas naturales.
 
-## Getting started
+---
 
-### Adding new sections
+## Fundamentos de la implementación de API
 
-Although it's not required, you can create folders for new sections.
+- **Compatibilidad REST**: Firmeasy utiliza una API REST que permite el uso de métodos **GET** y **POST**. Todos los datos enviados y recibidos están en formato JSON.
+  
+- **Cadenas Nulas**: La API de Firmeasy no acepta cadenas definidas como nulas. Si un campo está definido como una cadena vacía `("")`, será aceptado. En caso de que no sea necesario, omita el campo en su solicitud.
+  
+- **Valores Booleanos**: Asegúrese de enviar los valores booleanos correctos (`true` o `false`) y no como cadenas (`"true"` o `"false"`), para evitar errores en la validación.
 
-To show the section on the left side navigation, add it to the navigation config file at `src/config.ts`.
+---
 
-Example:
+### Gestión del Tiempo
 
-```js
-export const SIDEBAR = [
-    { text: "Core", header: true },
-    { text: "Introduction", link: "/core/introduction" },
-    ...,
-    { text: "Components", header: true },
-    { text: "Buttons", link: "/components/buttons" },
-    ...,
-    { text: "New section", header: true },
-    { text: "New component", link: "/new-section/new-component.md" },
-];
-```
+La API de Firmeasy trabaja en la zona horaria **UTC+0**. Para evitar discrepancias en la interpretación de fechas y horas, se recomienda usar el mismo estándar en sus integraciones.
 
-### Adding new pages
+---
 
-To add new pages just create an .astro or markdown file in `src/pages/[section]/my-page.md`. Remember to add it to the navigation config in `src/config.ts` so it shows up in the left side navigation.
+### Nota
 
-You're free to organize the pages however you want.
+Si aún no se ha integrado con Firmeasy, le recomendamos comenzar con el entorno de pruebas (sandbox) para familiarizarse con el flujo de trabajo sin incurrir en costos adicionales. Para más detalles sobre la configuración, haga clic [aquí](#) para obtener más información.
 
-### Customizing Core section (colors, typography, shadows...)
-
-If you want to customize the default colors, typography or shadows you can find the configuration file at `src/config/design.config.ts`.
-
-Feel free to add new pages to the Core section
-
-### Customizing the page layout
-
-You can find the css for the pages in `src/styles/content.scss`.
-
-### Adding your components
-
-Astro is great for design systems because it allows you to import components from different frameworks like react, vue or svelte.
-
-To get started check how the `MainButton` component is used in the `src/pages/en/buttons.md` file.
-
-You can import your component library or create your own and document it easily.
-
-### `.component-preview` utility
-
-There's a class called `.component-preview` that you can use to wrap your component in a grid, and it will look like this:
-
-<div class="component-preview">
-    <button class="text-white bg-blue-500 px-4 py-2 rounded-md">Your component</button>
-</div>
-
-### Have fun!
-
-Astro Design System template was made by **[@jordienr](https://twitter.com/jordienr)** for personal and commercial use.
