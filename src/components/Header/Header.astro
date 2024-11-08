@@ -18,22 +18,26 @@ const { currentPage } = Astro.props;
 		<div class="flex gap-2">
 		
 		<!-- <button onclick="toggleDarkMode()">theme</button> -->
-		{ SITE.twitter &&
-			(<a title="Twitter" class="opacity-90 hover:opacity-100 hover:bg-blue-100 p-2 rounded-full transition-colors" href={'https://twitter.com/'+SITE.twitter}>
-				<img class="h-7" src="/twitter.svg" alt="twitter logo">
-			</a>)
+		{
+			SITE.linkedin && (
+				<a title="LinkedIn" class="opacity-80 hover:opacity-100 hover:bg-blue-50 p-2 rounded-full transition-colors" href={'https://www.linkedin.com/company/firmeasy/?originalSubdomain=pe' + SITE.linkedin}>
+					<img class="h-11" src="/public/sup/linkedin.png" alt="LinkedIn logo" />
+				</a>
+			)
 		}
 		{
-			SITE.github &&
-			(<a title="Github" class="opacity-80 hover:opacity-100 hover:bg-slate-200 p-2 rounded-full transition-colors" href={'https://github.com/'+SITE.github}>
-				<img class="h-7" src="/github.svg" alt="github logo">
-			</a>)
+			SITE.youtube && (
+				<a title="YouTube" class="opacity-80 hover:opacity-100 hover:bg-red-100 p-2 rounded-full transition-colors" href={'https://www.youtube.com/@' + SITE.youtube}>
+					<img class="h-12" src="/public/sup/youtube.png" alt="YouTube logo" />
+				</a>
+			)
 		}
 		{
-			SITE.linkedin &&
-			(<a title="linkedin" class="opacity-80 hover:opacity-100 hover:bg-blue-50 p-2 rounded-full transition-colors" href={'https://linkedin.com/in/'+SITE.linkedin}>
-				<img class="h-7" src="/linkedin.svg" alt="linkedin logo">
-			</a>)
+			SITE.facebook && (
+				<a title="Facebook" class="opacity-80 hover:opacity-100 hover:bg-blue-200 p-2 rounded-full transition-colors" href={'https://www.facebook.com/' + SITE.facebook}>
+					<img class="h-12" src="/public/sup/facebook.png" alt="Facebook logo" />
+				</a>
+			)
 		}
 		</div>
 	</nav>

@@ -1,50 +1,49 @@
 ---
 import { SITE } from "../config";
 const navItems = [
-	{
-		title: 'Core',
-		description: 'Base colors, typography, shadows, and more.',
-		url: '/core/introduction',
-		img: '/Core.jpg'
-	},
-	{
-		title: 'Components',
-		description: 'The building blocks for our UI.',
-		url: '/components/buttons',
-		img: '/Components.jpg'
-	},
-	{
-		title: 'Patterns',
-		description: 'Common patterns for building interfaces.',
-		url: '/patterns/introduction',
-		img: '/Patterns.jpg'
+  {
+    title: 'Get Started with Firmeasy',
+    description: 'Learn the foundational elements for setting up secure digital signatures and document workflows.',
+    url: '/core/introduction',
+    img: '/public/sup/document.png'
+  },
+
+  {
+		title: 'Main Page',
+		description: 'Visit Firmeasy main page',
+		url: 'https://firmeasy.legal/' ,
+		img: '/public/sup/logo.webp'
 	}
 ]
-
 ---
 
-
-
-<div class="bg-slate-100 min-h-screen text-center">
-	<header class="pt-12 pb-24 px-4 bg-gradient-to-br from-slate-700 to-black">
+<div class="bg-slate-50 min-h-screen text-center">
+	<header class="pt-12 pb-24 px-4 bg-gradient-to-br from-slate-800 to-gray-900">
 		<div class="flex items-center justify-center p-4">
-			<img src="/astro-design-system-logo.svg" alt="Astro Design System Logo">
+			<img src="/public/sup/logo_dark.webp" alt="Firmeasy Documentation Logo" class="w-45 h-45">
 		</div>
-		<h1 class=" text-white text-4xl font-medium drop-shadow-sm">{SITE.title}</h1>
-		<p class="text-lg mt-4 text-slate-300">{SITE.description}</p>
+		<h1 class="text-white text-5xl font-semibold drop-shadow-lg">{SITE.title}</h1>
+		<p class="text-lg mt-4 text-slate-300 max-w-lg mx-auto">{SITE.description}</p>
 	</header>
-	<nav>
-		<ul class="flex gap-4 max-w-5xl mx-auto text-left mt-12">
-		{
-			navItems.map(({ title, description, url, img }) => (
-				<a href={url} class="flex flex-col bg-white rounded-md hover:-translate-y-1 hover:shadow-lg transition-all flex-1 items-center p-4">
-					<img src={img} alt={title}>
-					<h2 class="text-lg font-medium">{title}</h2>
-					<p class="text-slate-500">{description}</p>
-				</a>
-			))
-		}
-		</ul>
+
+	<nav class="mt-12">
+		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+			{
+			  navItems.map(({ title, description, url, img }) => (
+				<li class="shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-out">
+				  <a href={url} class="flex flex-col items-center bg-white">
+					<div class="w-full h-40 flex justify-center items-center bg-gray-100">
+					  <img src={img} alt={title} class="max-h-32 object-contain" />
+					</div>
+					<div class="p-6 text-center">
+					  <h2 class="text-xl font-semibold text-slate-800 mb-2">{title}</h2>
+					  <p class="text-slate-600 text-sm">{description}</p>
+					</div>
+				  </a>
+				</li>
+			  ))
+			}
+		  </ul>
 	</nav>
 </div>
 
