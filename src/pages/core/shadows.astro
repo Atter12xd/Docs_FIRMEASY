@@ -1,21 +1,66 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import { SHADOWS } from '../../design.config'
-
+import { SHADOWS } from '../../design.config';
 ---
 
 <MainLayout>
-    <h1>Shadows</h1>
-    <div class="component-preview">
-        <div class="inline-grid grid-cols-2 gap-16">
-        {SHADOWS.types.map(({name, value}) => (
-            <div class="p-2 bg-white rounded-md text-slate-500 text-right pt-16 pl-24 font-mono" style={"box-shadow: " + value}>{name}</div>
-        ))}
-        </div>
-    </div>
+    <h1>Digital Folder API Documentation</h1>
+    
+    ## POST - Digital Folder
+    **URL**: `https://app.firmeasy.legal/api/v1/digital/carpeta`  
+    **Description**: This endpoint is used to create a new digital folder.
+
+    ## Request Body
+    - `nombre` (string, required): The name of the new folder.
+    - `descripcion` (string, optional): The description of the new folder.
+
+    ### Example
     <pre class="astro-code bg-slate-800 text-white">
-    {SHADOWS.types.map(({name, value}) => (
-            <div class="my-2">{`${name}: ${value}`}</div>
-        ))}
+    {"{"}
+        "nombre": "Carpeta Nueva"
+    {"}"}
+    </pre>
+
+    ## Example Request (cURL)
+    <pre class="astro-code bg-slate-800 text-white">
+    curl --location 'https://app.firmeasy.legal/api/v1/digital/carpeta' \\
+    --header 'Content-Type: application/json' \\
+    --data '{"{"}
+        "nombre": "Carpeta Nueva"
+    {"}"}'
+    </pre>
+
+    ## Response
+    The response of this request is a JSON schema.
+
+    ### Example Response
+    <pre class="astro-code bg-slate-800 text-white">
+    {"{"}
+        "success": true,
+        "carpeta_id": "3b9266a1-2f13-5980-85c4-14edaa84a4d6",
+        "message": "La Carpeta se creó satisfactoriamente"
+    {"}"}
+    </pre>
+
+    ### JSON Schema
+    <pre class="astro-code bg-slate-800 text-white">
+    {"{"}
+        "success": "boolean",
+        "carpeta_id": "string",
+        "message": "string"
+    {"}"}
+    </pre>
+
+    ## Authorization
+    **Bearer Token**: This request requires a Bearer Token from the Firmeasy API Production collection.
+
+    ## Headers
+    - `Content-Type`: `application/json`
+
+    ## Request Body (Raw Format)
+    <pre class="astro-code bg-slate-800 text-white">
+    {"{"}
+        "nombre": "Carpeta Nueva"
+    {"}"}
     </pre>
 </MainLayout>

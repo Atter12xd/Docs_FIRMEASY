@@ -1,27 +1,66 @@
 ---
-    import MainLayout from '../../layouts/MainLayout.astro'
-    import { TYPOGRAPHY } from '../../design.config'
+import MainLayout from '../../layouts/MainLayout.astro';
+import { TYPOGRAPHY } from '../../design.config';
 
-    const getStyle = (item) => {
-        return `font-size: ${item.size}; font-weight: ${item.weight};`
-    }
+const getStyle = (item) => {
+    return `font-size: ${item.size}; font-weight: ${item.weight};`;
+};
 ---
 
 <MainLayout>
-    <h1>Typography</h1>
-    <div class="w-full">
-    {
-        TYPOGRAPHY.scale.map((item) => (
-            <div class="mt-6 border-t py-4">
-                <p style={getStyle(item)}>Hello world</p>
-                <div class="flex gap-6 text-slate-500 font-mono">
-                    <span>{item.name}</span>
-                    <span>weight: {item.weight}</span>
-                    <span>size: {item.size}</span>
-                </div>
-            </div>
-        ))
-    }
-    </div>
+    <h1>POST - Digital Folder Link</h1>
+    
+    ## Endpoint
+    **URL**: `https://app.firmeasy.legal/api/v1/digital/carpeta/enlace`  
+    **Description**: This endpoint allows the user to add a digital link to a specific folder.
+
+    ## Request Body
+    - `carpeta_id` (string, required): The ID of the folder to which the digital link will be added.
+    - `tiempo` (integer): The time duration for the digital link in hours.
+
+    ### Example Request Body
+    <pre class="astro-code bg-slate-800 text-white">
+    {"{"}
+        "carpeta_id": "3b9266a1-2f13-4980-85d9-14edaa84a4d6",
+        "tiempo": 5
+    {"}"}
+    </pre>
+
+    ## Example Request (cURL)
+    <pre class="astro-code bg-slate-800 text-white">
+    curl --location 'https://app.firmeasy.legal/api/v1/digital/carpeta/enlace' \\
+    --header 'Content-Type: application/json' \\
+    --data '{"{"}
+        "carpeta_id": "3b9266a1-2f13-4980-85d9-14edaa84a4d6",
+        "tiempo": 5
+    {"}"}'
+    </pre>
+
+    ## Response
+    Upon successful execution, the response will have a status code of 200 and a JSON body with the following fields.
+
+    ### Example Response
+    <pre class="astro-code bg-slate-800 text-white">
+    {"{"}
+        "success": true,
+        "enlace": "https://app.firmeasy.legal/link/3b9266a1-2f13-4980-85d9-14edaa84a4d6",
+        "message": "Link created successfully"
+    {"}"}
+    </pre>
+
+    ### JSON Schema
+    <pre class="astro-code bg-slate-800 text-white">
+    {"{"}
+        "success": "boolean",
+        "enlace": "string",
+        "message": "string"
+    {"}"}
+    </pre>
+
+    ## Authorization
+    **Bearer Token**: This request uses a Bearer Token from the Firmeasy API Production collection.
+
+    ## Headers
+    - `Content-Type`: `application/json`
 
 </MainLayout>

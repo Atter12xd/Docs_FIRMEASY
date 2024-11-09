@@ -5,57 +5,60 @@ setup: |
   import MainButton from '../../components/MainButton.vue'
 ---
 
-## All buttons
+## *POST - Digital File Upload*
 
-This page is an example on how to document your button components, most of the copy was written by AI so don't take it very seriously.
+`https://app.firmeasy.legal/api/v1/digital/archivo`
 
-Find the code for this page in the `src/pages/components/buttons.md` file.
+The `POST /v1/digital/archivo` endpoint is used to upload a digital file to a specific folder. The request should be sent with form-data containing `carpeta_id` (folder ID), `nombre` (file name), and `file` (file in base64 format).
 
-<div class="component-preview">
-    <MainButton primary>Primary</MainButton>
-    <MainButton secondary>Secondary</MainButton>
-    <MainButton text>Text</MainButton>
-</div>
+---
 
-```js
-  <MainButton primary>Primary</MainButton>
-  <MainButton secondary>Secondary</MainButton>
-  <MainButton text>Text</MainButton>
+## Request Body
+
+- **carpeta_id** (text): The ID of the folder where the file will be uploaded.
+- **nombre** (text): The name of the file to be uploaded.
+- **file** (text): The digital file to upload in base64 format.
+
+---
+
+## Response
+
+The response to this request will be in JSON format with the following properties:
+
+- **success** (boolean): Indicates whether the file upload was successful.
+- **archivo_id**: The ID of the uploaded file.
+- **size**: The size of the uploaded file.
+- **message**: A message indicating the result of the file upload.
+
+---
+
+## JSON Schema
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "archivo_id": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}
+
 ```
-
-## Primary button
-
-We use the primary button for main actions like saving a form or creating a new item.
-
-<div class="component-preview">
-    <MainButton primary>Primary button</MainButton>
-</div>
-
-```js
-<MainButton primary>Primary button</MainButton>
-```
-
-## Secondary button
-
-Secondary buttons accompany primary buttons to provide additional actions.
-For example, cancel buttons are secondary buttons.
-
-<div class="component-preview">
-    <MainButton secondary>Secondary button</MainButton>
-</div>
-
-```js
-<MainButton secondary>Secondary button</MainButton>
-```
-
-## Text button
-
-Text buttons are used for actions that do not require a primary or secondary button.
-
-<div class="component-preview">
-    <MainButton text>Text button</MainButton>
-</div>
-
-```js
-<MainButton text>Text button</MainButton>
+## Example Request
+```json
+curl --location 'https://app.firmeasy.legal/api/v1/digital/archivo' \
+--header 'Content-Type: multipart/form-data' \
+--form 'carpeta_id="59208b30-0305-4c06-90f4-d6da2d9750ce"' \
+--form 'nombre="Sample File"' \
+--form 'file="JVBERi0xLjMKJ... (base64 file content)"'
 ```

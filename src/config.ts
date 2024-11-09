@@ -20,15 +20,17 @@ export const OPEN_GRAPH = {
 export const SIDEBAR = [
   { text: "Core", header: true },
   { text: "General Information", link: "/core/introduction" },
-  { text: "Digital Folder", link: "/core/colors" },
-  { text: "Digital file", link: "/core/typography" },
-  { text: "Download Digital File", link: "/core/shadows" },
+  { text: "Benefits ", link: "/core/colors" },
+  { text: "Digital Folder", link: "/core/shadows" },
+  { text: "Digital file Link", link: "/core/typography" },
+ 
 
   { text: "Components", header: true },
-  { text: "Digital file Link", link: "/components/buttons" },
-  { text: "Digital File Consultation", link: "/components/input" },
-  { text: "Create Digital Link To Signer", link: "/components/status-pill" },
-  { text: "Table", link: "/components/table" },
+  { text: "Digital file", link: "/components/buttons" },
+  { text: "Digital Archivo Download", link: "/components/input" },
+  { text: "Digital Archivo Enlace", link: "/components/status-pill" },
+  { text: "Digital Archivo Consulta", link: "/components/table" },
+  { text: "Create Digital Link to FIrmador", link: "/components/create" },
 
   { text: "Patterns", header: true },
   { text: "Introduction", link: "/patterns/introduction" },
